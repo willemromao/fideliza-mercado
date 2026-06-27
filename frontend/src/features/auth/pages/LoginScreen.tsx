@@ -4,34 +4,34 @@ import { AuthButton } from '../../../components/ui/AuthButton'
 import { AuthField } from '../../../components/ui/AuthField'
 import { BrandMark } from '../../../components/ui/BrandMark'
 import { TopOrnament } from '../../../components/ui/TopOrnament'
-import { MailIcon, PersonIcon } from '../../../components/icons/auth-icons'
+import { MailIcon } from '../../../components/icons/auth-icons'
 import { PasswordField } from '../../../components/ui/PasswordField'
 import { WelcomeCarousel } from '../../../components/ui/WelcomeCarousel'
 import { appRoutes, navigateTo } from '../../../app/appRoutes'
 import folhasBg from '../../../assets/folhas2.png'
 import bagImage from '../../../assets/bag.png'
 
-export function SignUpScreen() {
+export function LoginScreen() {
   const [carouselIndex, setCarouselIndex] = useState(0)
 
   const slides = [
     {
-      eyebrow: 'Cadastro rápido',
-      title: 'Comece com vantagens',
+      eyebrow: 'Receitas',
+      title: 'Receitas que viram rotina',
       description:
-        'Crie sua conta em poucos passos e comece a organizar suas receitas, pontos e recompensas sem complicação.',
+        'Entre para ver sugestões, acompanhar seus pontos e transformar cada compra em uma experiência mais inteligente.',
     },
     {
-      eyebrow: 'Experiência',
-      title: 'Uma jornada leve e clara',
+      eyebrow: 'Benefícios',
+      title: 'Vantagens que fazem diferença',
       description:
-        'Uma jornada simples, clara e bonita para acompanhar suas vantagens desde o primeiro acesso.',
+        'Seu mercado favorito em um só lugar, com recompensas claras, resgates simples e vantagens que fazem sentido no dia a dia.',
     },
     {
-      eyebrow: 'Vantagens',
-      title: 'Seu perfil pronto para crescer',
+      eyebrow: 'Conexão',
+      title: 'Tudo perto de você',
       description:
-        'Seu perfil pronto para receber ofertas, benefícios e novidades que combinam com sua rotina de mercado.',
+        'Acompanhe sua jornada, descubra novidades e aproveite uma área feita para ganhar tempo sem perder o estilo.',
     },
   ]
 
@@ -60,7 +60,7 @@ export function SignUpScreen() {
                 </div>
 
                 <h1 className="max-w-[14ch] text-[2.4rem] font-black leading-[0.98] tracking-[-0.06em] text-[#0c0c0d] sm:text-[3.2rem] lg:max-w-[12ch] lg:text-[4.45rem]">
-                  Crie sua conta
+                  Bem-vindo!
                 </h1>
 
                 <div className="mt-4 w-full max-w-[31rem] sm:mt-5 lg:mt-6">
@@ -102,16 +102,24 @@ export function SignUpScreen() {
 
                 <div className="relative rounded-[2rem] bg-[rgba(255,255,255,0.9)] px-4 py-5 shadow-[0_16px_48px_rgba(15,23,42,0.08)] ring-1 ring-black/5 sm:px-6 sm:py-6 lg:px-7 lg:py-7">
                   <div className="space-y-4 sm:space-y-4.5">
-                    <AuthField placeholder="Nome completo" icon={<PersonIcon className="h-7 w-7" />} />
-                    <AuthField placeholder="E-mail" icon={<MailIcon className="h-7 w-7" />} />
+                    <AuthField placeholder="E-mail ou CPF" icon={<MailIcon className="h-7 w-7" />} />
                     <PasswordField placeholder="Senha" />
-                    <PasswordField placeholder="Confirmar senha" />
+                  </div>
+
+                  <div className="mt-3 flex justify-end">
+                    <button
+                      type="button"
+                      onClick={() => navigateTo('/esqueci-minha-senha')}
+                      className="cursor-pointer text-[0.98rem] font-medium text-[#DD0205] transition-opacity hover:opacity-80"
+                    >
+                      Esqueci minha senha
+                    </button>
                   </div>
 
                   <div className="mt-5 space-y-4">
-                    <AuthButton>Criar conta</AuthButton>
-                    <AuthButton variant="secondary" onClick={() => navigateTo(appRoutes.login)}>
-                      Já tenho conta
+                    <AuthButton>Entrar</AuthButton>
+                    <AuthButton variant="secondary" onClick={() => navigateTo(appRoutes.cadastro)}>
+                      Criar conta
                     </AuthButton>
                   </div>
                 </div>
@@ -125,7 +133,7 @@ export function SignUpScreen() {
                   />
 
                   <p className="mx-auto mt-2 max-w-[22rem] text-center text-[0.96rem] leading-[1.6] text-[#6e7481] sm:text-[1rem]">
-                    Ao criar sua conta, você concorda com os{' '}
+                    Ao entrar, você concorda com os{' '}
                     <a href="#" className="cursor-pointer font-medium text-[#D60606]">
                       Termos
                     </a>{' '}

@@ -11,7 +11,7 @@ export function BrandMark({ className = '' }: BrandMarkProps) {
         src={brandIcon}
         alt=""
         aria-hidden="true"
-        className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14"
+        className="h-12 w-12 shrink-0 object-contain sm:h-14 mb-5 sm:w-14"
       />
       <div className="leading-none">
         <div className="text-[2.05rem] font-extrabold tracking-tight text-[#DD0205] sm:text-[2.2rem]">

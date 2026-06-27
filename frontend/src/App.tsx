@@ -1,7 +1,7 @@
-import { SignUpScreen } from './features/auth/pages/SignUpScreen'
+import { AppRoutes } from './app/routes'
 
 function App() {
-  return <SignUpScreen />
+  return <AppRoutes />
 }
 
 export default App
