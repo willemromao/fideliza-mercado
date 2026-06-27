@@ -12,6 +12,7 @@ import { ApiBody, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { ReceitaService } from './receita.service';
 import { CreateReceitaDto } from './dto/create-receita.dto';
 import { UpdateReceitaDto } from './dto/update-receita.dto';
+import { ConcluirReceitaDto } from './dto/concluir-receita.dto';
 
 @ApiTags('receita')
 @Controller('receita')
@@ -38,11 +39,36 @@ export class ReceitaController {
     return this.receitaService.findOne(id);
   }
 
+  @ApiOperation({
+    summary: 'Renderizar receita com ingredientes e produtos vinculados',
+  })
+  @ApiParam({ name: 'id', description: 'ID da receita' })
+  @Get(':id/completa')
+  renderizarCompleta(@Param('id', ParseIntPipe) id: number) {
+    return this.receitaService.renderizarReceitaCompleta(id);
+  }
+
+  @ApiOperation({
+    summary: 'Validar receita concluída com base na venda simulada',
+  })
+  @ApiParam({ name: 'id', description: 'ID da receita' })
+  @ApiBody({ type: ConcluirReceitaDto })
+  @Post(':id/concluir')
+  concluirReceita(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() concluirReceitaDto: ConcluirReceitaDto,
+  ) {
+    return this.receitaService.concluirReceita(id, concluirReceitaDto);
+  }
+
   @ApiOperation({ summary: 'Atualizar uma receita' })
   @ApiParam({ name: 'id', description: 'ID da receita' })
   @ApiBody({ type: UpdateReceitaDto })
   @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: number, @Body() updateReceitaDto: UpdateReceitaDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateReceitaDto: UpdateReceitaDto,
+  ) {
     return this.receitaService.update(id, updateReceitaDto);
   }
 

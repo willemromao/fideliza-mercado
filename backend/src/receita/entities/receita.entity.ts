@@ -1,4 +1,5 @@
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { ReceitaIngrediente } from './receita-ingredientes.entity';
 
 export enum tipoDificuldade {
   FACIL = 'facil',
@@ -6,9 +7,16 @@ export enum tipoDificuldade {
   DIFICIL = 'dificil',
 }
 
+@Entity({ name: 'receitas' })
 export class Receita {
   @PrimaryGeneratedColumn()
   id!: number;
+
+  @OneToMany(
+    () => ReceitaIngrediente,
+    (receitaIngrediente) => receitaIngrediente.receita,
+  )
+  ingredientes!: ReceitaIngrediente[];
 
   @Column({ name: 'nome', type: 'varchar', length: 255 })
   titulo!: string;

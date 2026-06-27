@@ -1,15 +1,25 @@
-import { Column, ManyToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToMany,
+  ManyToOne,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Receita } from './receita.entity';
-import { Produto } from 'src/produto/entities/produto.entity';
+import { Produto } from '../../produto/entities/produto.entity';
 
+@Entity({ name: 'receita_ingredientes' })
 export class ReceitaIngrediente {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @ManyToMany(() => Receita)
+  @ManyToOne(() => Receita, (receita) => receita.ingredientes)
   receita!: Receita;
 
-  @OneToOne(() => Produto)
+  @ManyToOne(() => Produto)
+  @JoinColumn({ name: 'produto_id' })
   produto!: Produto;
 
   @Column({ name: 'unidade', type: 'varchar', length: 255 })
