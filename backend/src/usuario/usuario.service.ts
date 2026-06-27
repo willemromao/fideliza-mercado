@@ -2,13 +2,21 @@ import { Injectable } from '@nestjs/common';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { UsuarioRepository } from './usuario.repository';
+import { TipoUsuario } from './entities/usuario.entity';
 
 @Injectable()
 export class UsuarioService {
   constructor(private readonly usuarioRepository: UsuarioRepository) {}
 
   async create(createUsuarioDto: CreateUsuarioDto) {
-    await this.usuarioRepository.upsert(createUsuarioDto);
+    const usuario = { ...createUsuarioDto };
+
+    if (usuario.tipoUsuario === TipoUsuario.ADMIN) {
+      usuario.preferencias = undefined;
+      usuario.pontos = undefined;
+    }
+
+    await this.usuarioRepository.upsert(usuario);
   }
 
   async findAll() {
@@ -19,8 +27,8 @@ export class UsuarioService {
     return await this.usuarioRepository.buscarPorId(id);
   }
 
-  async update(updateUsuarioDto: UpdateUsuarioDto) {
-    await this.usuarioRepository.upsert(updateUsuarioDto);
+  async update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
+    await this.usuarioRepository.upsert({ ...updateUsuarioDto, id });
   }
 
   async remove(id: number) {
