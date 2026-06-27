@@ -91,9 +91,29 @@
 
 ## 5. Fontes de Receita (Revenue Streams)
 
-* Assinatura SaaS mensal.
-* Plano anual com desconto.
-* Implantação e integração inicial (opcional).
+Modelo SaaS, com um plano Start para supermercados que desejam implantar a solução rapidamente e um plano Enterprise, com preço personalizado para grandes redes que necessitam de múltiplas lojas e integrações específicas.
+
+| Plano | Mensal | Anual |
+|--------|--------:|--------:|
+| **Start** | **R$ 1.490/mês** | **R$ 14.300/ano** *(equivale a ~2 meses de desconto)* |
+| **Enterprise** | **Sob consulta** | **Sob consulta** |
+
+### Start
+Ideal para supermercados de pequeno e médio porte.
+
+- Plataforma White Label
+- Recomendações de receitas com IA
+- Gamificação (desafios e recompensas)
+- Painel administrativo
+
+### Enterprise
+Ideal para redes de supermercados e atacarejos.
+
+Tudo do Start, além de:
+
+- Múltiplas lojas
+- Integrações personalizadas
+- Suporte prioritário
 
 ---
 
