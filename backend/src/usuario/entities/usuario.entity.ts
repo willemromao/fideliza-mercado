@@ -1,37 +1,37 @@
-import { Column, PrimaryGeneratedColumn, Entity } from "typeorm";
+import { Column, PrimaryGeneratedColumn, Entity } from 'typeorm';
 
 export enum TipoUsuario {
-    ADMIN = 'admin',
-    USUARIO = 'usuario'
+  ADMIN = 'admin',
+  CLIENTE = 'cliente',
 }
 
 @Entity('usuarios')
 export class Usuario {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    nome: string;
+  @Column({ name: 'nome', type: 'varchar', length: 255 })
+  nome!: string;
 
-    @Column()
-    email: string;
+  @Column({ name: 'email', type: 'varchar', length: 255 })
+  email!: string;
 
-    @Column()
-    senha: string;
+  @Column({ name: 'senha', type: 'varchar', length: 255 })
+  senha!: string;
 
-    @Column()
-    ativo: boolean;
+  @Column({ name: 'ativo', type: 'boolean' })
+  ativo!: boolean;
 
-    @Column("simple-array")
-    preferencias: string[];
+  @Column({ name: 'preferencias', type: 'simple-array', nullable: true })
+  preferencias?: string[];
 
-    @Column()
-    pontos: number;
+  @Column({ name: 'pontos', type: 'int', nullable: true })
+  pontos?: number;
 
-    @Column({
-        type: "enum",
-        enum: TipoUsuario,
-        default: TipoUsuario.USUARIO
-    })
-    tipoUsuario: TipoUsuario;
+  @Column({
+    name: 'tipo_usuario',
+    type: 'enum',
+    enum: TipoUsuario,
+  })
+  tipoUsuario!: TipoUsuario;
 }

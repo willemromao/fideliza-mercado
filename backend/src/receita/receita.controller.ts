@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ReceitaService } from './receita.service';
 import { CreateReceitaDto } from './dto/create-receita.dto';
 import { UpdateReceitaDto } from './dto/update-receita.dto';
@@ -23,8 +31,8 @@ export class ReceitaController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateReceitaDto: UpdateReceitaDto) {
-    return this.receitaService.update(+id, updateReceitaDto);
+  update(@Body() updateReceitaDto: UpdateReceitaDto) {
+    return this.receitaService.update(updateReceitaDto);
   }
 
   @Delete(':id')
