@@ -20,6 +20,8 @@ export class ReceitaService {
     ['VENDA-1001', [1, 2, 3]],
     ['VENDA-1002', [2, 4, 5]],
     ['VENDA-1003', [1, 4, 6]],
+    ['VENDA-1004', [3, 7, 8]],
+    ['VENDA-1005', [5, 9, 10]],
   ]);
 
   constructor(
