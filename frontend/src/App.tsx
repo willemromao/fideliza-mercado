@@ -5,7 +5,7 @@ function App() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-8">
             <span className="inline-flex items-center rounded-full border border-orange-200 bg-white/80 px-4 py-1 text-sm font-medium text-orange-700 shadow-sm backdrop-blur">
-              Clube Sabor
+              Fideliza Mercado
             </span>
 
             <div className="space-y-4">
@@ -13,8 +13,7 @@ function App() {
                 Começando a interface do projeto com Tailwind CSS
               </h1>
               <p className="max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
-                Este é um ponto de partida limpo para montar telas do Clube
-                Sabor usando classes utilitárias, sem depender do template
+                Este é um ponto de partida limpo para montar telas do Fideliza Mercado usando classes utilitárias, sem depender do template
                 padrão do Vite.
               </p>
             </div>

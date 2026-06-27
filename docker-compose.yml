@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: clube-sabor-postgres
+    container_name: fideliza-mercado-postgres
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${DB_NAME}
@@ -10,7 +10,7 @@ services:
     ports:
       - '${DB_PORT:-5432}:5432'
     volumes:
-      - clube_sabor_postgres_data:/var/lib/postgresql/data
+      - fideliza_mercado_postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U ${DB_USERNAME} -d ${DB_NAME}']
       interval: 5s
@@ -18,4 +18,4 @@ services:
       retries: 10
 
 volumes:
-  clube_sabor_postgres_data:
+  fideliza_mercado_postgres_data:
