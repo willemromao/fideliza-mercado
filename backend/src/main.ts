@@ -8,7 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Cluber Sabor API')
+    .setTitle('Fideliza Mercado API')
     .setDescription('Documentação do backend')
     .setVersion('1.0')
     .build();
