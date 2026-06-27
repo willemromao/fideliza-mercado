@@ -1,26 +1,28 @@
 import { Injectable } from '@nestjs/common';
 import { CreateReceitaDto } from './dto/create-receita.dto';
 import { UpdateReceitaDto } from './dto/update-receita.dto';
+import { ReceitaRepository } from './receita.repository';
 
 @Injectable()
 export class ReceitaService {
-  create(createReceitaDto: CreateReceitaDto) {
-    return 'This action adds a new receita';
+  constructor(private readonly receitaRepository: ReceitaRepository) {}
+  async create(createReceitaDto: CreateReceitaDto) {
+    return await this.receitaRepository.upsert(createReceitaDto);
   }
 
-  findAll() {
-    return `This action returns all receita`;
+  async findAll() {
+    return await this.receitaRepository.listarTodas();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} receita`;
+  async findOne(id: number) {
+    return await this.receitaRepository.buscarPorId(id);
   }
 
-  update(id: number, updateReceitaDto: UpdateReceitaDto) {
-    return `This action updates a #${id} receita`;
+  async update(updateReceitaDto: UpdateReceitaDto) {
+    return await this.receitaRepository.upsert(updateReceitaDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} receita`;
+  async remove(id: number) {
+    return await this.receitaRepository.remover(id);
   }
 }

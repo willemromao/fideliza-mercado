@@ -1,34 +1,50 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
+import { ApiOperation } from 'node_modules/@nestjs/swagger/dist/decorators/api-operation.decorator';
 
 @Controller('usuario')
 export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService) {}
 
+  @ApiOperation({ summary: 'Criar Usuario' })
   @Post()
-  create(@Body() createUsuarioDto: CreateUsuarioDto) {
-    return this.usuarioService.create(createUsuarioDto);
+  async create(@Body() createUsuarioDto: CreateUsuarioDto) {
+    return await this.usuarioService.create(createUsuarioDto);
   }
 
+  @ApiOperation({ summary: 'Listar todos os usuarios' })
   @Get()
-  findAll() {
-    return this.usuarioService.findAll();
+  async findAll() {
+    return await this.usuarioService.findAll();
   }
 
+  @ApiOperation({ summary: 'Buscar um usuario por ID' })
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usuarioService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.usuarioService.findOne(+id);
   }
 
+  @ApiOperation({ summary: 'Atualizar um usuario' })
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
-    return this.usuarioService.update(+id, updateUsuarioDto);
+  async update(
+    @Body() updateUsuarioDto: UpdateUsuarioDto,
+  ) {
+    return await this.usuarioService.update(updateUsuarioDto);
   }
 
+  @ApiOperation({ summary: 'Remover um usuario' })
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usuarioService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.usuarioService.remove(+id);
   }
 }
