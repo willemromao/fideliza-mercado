@@ -42,7 +42,10 @@ export class ProdutoController {
   @ApiParam({ name: 'id', description: 'ID do produto' })
   @ApiBody({ type: UpdateProdutoDto })
   @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: number, @Body() updateProdutoDto: UpdateProdutoDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateProdutoDto: UpdateProdutoDto,
+  ) {
     return this.produtoService.update(id, updateProdutoDto);
   }
 

@@ -1,4 +1,4 @@
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum tipoUnidade {
   PESO = 'PESO',
@@ -17,6 +17,7 @@ export enum medidaUnidade {
   KILO = 'KILO',
 }
 
+@Entity({ name: 'produtos' })
 export class Produto {
   @PrimaryGeneratedColumn({ name: 'id', type: 'int' })
   id!: number;

@@ -20,7 +20,7 @@ export class ProdutoService {
   }
 
   async update(id: number, updateProdutoDto: UpdateProdutoDto) {
-    return this.produtoRepository.upsert(updateProdutoDto);
+    return this.produtoRepository.upsert({ ...updateProdutoDto, id });
   }
 
   async remove(id: number) {
