@@ -1,5 +1,6 @@
 export const appRoutes = {
-  login: '/',
+  landing: '/',
+  login: '/login',
   cadastro: '/cadastro',
 } as const
 

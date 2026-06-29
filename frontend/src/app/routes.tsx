@@ -1,3 +1,4 @@
+import { LandingScreen } from '../features/landing/pages/LandingScreen'
 import { LoginScreen } from '../features/auth/pages/LoginScreen'
 import { SignUpScreen } from '../features/auth/pages/SignUpScreen'
 import { appRoutes } from './appRoutes'
@@ -9,5 +10,9 @@ export function AppRoutes() {
     return <SignUpScreen />
   }
 
-  return <LoginScreen />
+  if (path === appRoutes.login) {
+    return <LoginScreen />
+  }
+
+  return <LandingScreen />
 }

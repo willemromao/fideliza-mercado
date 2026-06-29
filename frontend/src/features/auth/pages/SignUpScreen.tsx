@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { AuthButton } from '../../../components/ui/AuthButton'
 import { AuthField } from '../../../components/ui/AuthField'
 import { BrandMark } from '../../../components/ui/BrandMark'
-import { TopOrnament } from '../../../components/ui/TopOrnament'
 import { MailIcon, PersonIcon } from '../../../components/icons/auth-icons'
 import { PasswordField } from '../../../components/ui/PasswordField'
 import { WelcomeCarousel } from '../../../components/ui/WelcomeCarousel'
@@ -36,25 +35,22 @@ export function SignUpScreen() {
   ]
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#ffffff_0%,_#faf8f8_42%,_#f4f1f1_100%)] text-slate-950">
-      <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:radial-gradient(rgba(15,23,42,0.9)_1px,transparent_1px)] [background-size:22px_22px]" />
+    <main className="relative min-h-screen overflow-hidden bg-white text-slate-950">
 
-      <section className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
-        <div
-          className="relative flex min-h-[calc(100vh-3rem)] flex-1 overflow-hidden rounded-[2rem] border border-white/70 bg-[rgba(255,255,255,0.78)] shadow-[0_30px_90px_rgba(15,23,42,0.08)] backdrop-blur-[4px] lg:rounded-[2.5rem]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)), url(${folhasBg})`,
-            backgroundPosition: 'center top',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-          }}
-        >
-          <div className="absolute inset-x-0 top-0 h-28 bg-[linear-gradient(180deg,#fef5f4_0%,rgba(254,245,244,0.88)_46%,rgba(254,245,244,0)_100%)]" />
-
+      <section className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
+        <div className="relative flex min-h-[calc(100vh-3rem)] flex-1 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.08)] lg:rounded-[2.5rem]">
           <div className="relative grid min-h-full flex-1 lg:grid-cols-[1.08fr_0.92fr]">
-            <aside className="relative flex min-h-[16rem] flex-col items-center justify-start overflow-hidden px-5 py-6 sm:px-8 lg:min-h-full lg:px-10 lg:py-8">
-              <TopOrnament className="mb-4 sm:mb-5 lg:mb-8" />
-              <div className="relative z-10 flex max-w-xl flex-col items-center text-center lg:items-start lg:text-left">
+            <aside className="relative flex min-h-[16rem] items-start justify-center overflow-hidden px-5 pb-10 pt-0 sm:px-8 lg:min-h-full lg:pl-10 lg:pr-0 lg:pb-12 lg:pt-0">
+              <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[9.5rem] overflow-hidden sm:h-[11.5rem] lg:h-[14rem]">
+                <img
+                  src={folhasBg}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+
+              <div className="relative z-10 flex w-full max-w-none flex-col items-center pt-[9.25rem] text-center sm:pt-[11rem] lg:items-start lg:text-left lg:pt-[13.25rem]">
                 <div className="mb-6 sm:mb-8">
                   <BrandMark className="justify-center lg:justify-start" />
                 </div>
@@ -96,7 +92,7 @@ export function SignUpScreen() {
               </div>
             </aside>
 
-            <section className="relative flex items-center justify-center px-4 py-8 sm:px-6 lg:px-10 lg:py-12">
+            <section className="relative flex items-center justify-center px-4 py-8 sm:px-6 lg:pl-0 lg:pr-10 lg:py-12">
               <div className="relative w-full max-w-[31rem]">
                 <div className="absolute -inset-3 rounded-[2.25rem] bg-[radial-gradient(circle_at_top,_rgba(221,2,5,0.08),transparent_55%)] blur-2xl" />
 
